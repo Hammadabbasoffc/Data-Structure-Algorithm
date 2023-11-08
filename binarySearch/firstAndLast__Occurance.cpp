@@ -15,7 +15,7 @@ int firstOccurance(int arr[] , int n , int key){
             s = mid +1;
         }else{
             e = mid -1;
-        }
+        } 
         int mid = (s + e ) / 2;
     }
 }
