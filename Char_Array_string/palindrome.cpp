@@ -1,6 +1,17 @@
 #include<iostream>
 using namespace std;
 
+bool lowerCase(char ch){
+    if (ch >= 'a' && ch <= 'z')
+    {
+        return ch;
+    }else{
+        char temp = ch-'A'+'a';
+        return temp;
+    }
+    
+}
+
 string reverse(string str){
     int st = 0 , e = str.size()-1;
 
