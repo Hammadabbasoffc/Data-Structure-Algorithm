@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 
-void printSum(int arr[][4], int row, int col)
+void printSumRow(int arr[][4], int row, int col)
 {
-    cout<<"Printing Sum : "<<endl;
+    cout<<"Printing Sum : ROW"<<endl;
 
     for (int row = 0; row < 3; row++)
     {
@@ -13,7 +13,22 @@ void printSum(int arr[][4], int row, int col)
             sum += arr[row][col];
         }
         cout<<sum<<" ";
-    }
+    }cout<<endl;
+}
+
+void printSumCol(int arr[][4], int row, int col)
+{
+    cout<<"Printing Sum : Column"<<endl;
+
+    for (int col = 0; col < 4; col++)
+    {
+        int sum = 0;
+        for (int row = 0; row < 3; row++)
+        {
+            sum += arr[row][col];
+        }
+        cout<<sum<<" ";
+    }cout<<endl;
 }
 
 int main()
@@ -40,7 +55,8 @@ int main()
         cout << endl;
     }
 
-    printSum(arr , 3 , 4);
+    printSumRow(arr , 3 , 4);
+    printSumCol(arr , 3 , 4);
 
     return 0;
 }
