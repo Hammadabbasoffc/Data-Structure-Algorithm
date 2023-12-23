@@ -56,7 +56,7 @@ void insertAtAnyPosition(Node* &tail, Node* &head, int position ,int data){
         return;
     }
 
-    Node* temp = new Node(data);
+    Node* temp = head;
     int count = 1;
     while (count < position-1)
     {
@@ -71,9 +71,13 @@ void insertAtAnyPosition(Node* &tail, Node* &head, int position ,int data){
         return;
     }
 
-    
-    
-    
+    Node* nodeToInsert = new Node(data);
+
+    nodeToInsert->next = temp->next;
+    temp->next->prev = nodeToInsert;
+    temp->next = nodeToInsert;
+    nodeToInsert->prev = temp;    
+
 }
 
 int main(){
@@ -85,6 +89,9 @@ int main(){
     insertionAtHead(head, 12);
     print(head);
     insertionAtTail(tail, 112);
+    print(head);
+
+    insertAtAnyPosition(tail, head, 2, 11223);
     print(head);
     cout<<"Length is : "<<getLength(head)<<endl;
 
