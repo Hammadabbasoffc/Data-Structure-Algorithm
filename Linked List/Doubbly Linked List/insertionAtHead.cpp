@@ -35,10 +35,19 @@ int getLength(Node* &head){
     return len;
 }
 
+void insertionAtHead(Node* &head, int data){
+    Node* temp = new Node(data);
+    temp->next = head;
+    head->prev = temp;
+    head = temp;
+}
+
 int main(){
 
     Node* node1 = new Node(10);
     Node* head = node1;
+    print(head);
+    insertionAtHead(head, 12);
     print(head);
     cout<<"Length is : "<<getLength(head)<<endl;
 
