@@ -86,8 +86,23 @@ void Deletion(Node* &head, int position){
     {
         Node* temp = head;
         temp->next->prev = NULL;
-        temp->next = head;
+        head = temp->next;
         temp->next = NULL;
+        delete temp;
+    }else{
+        Node* current = head;
+        Node* previous = NULL;
+        int count = 1;
+        while (count < position)
+        {
+            previous = current;
+            current = current->next;
+            count++;
+        }
+        current ->prev = NULL;
+        previous->next = current->next;
+        current->next = NULL;
+        delete current;
     }
     
 }
@@ -104,6 +119,8 @@ int main(){
     print(head);
 
     insertAtAnyPosition(tail, head, 2, 11223);
+    print(head);
+    Deletion(head , 4);
     print(head);
     cout<<"Length is : "<<getLength(head)<<endl;
 
