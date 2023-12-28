@@ -15,8 +15,6 @@ public:
         this->left = NULL;
         this->right = NULL;
     }
-
-   
 };
 
  void levelOrderTraversal(Node *root)
